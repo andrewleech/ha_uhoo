@@ -1,5 +1,4 @@
-# Home-Assistant Custom Components
-### uHoo Air Quality Monitor
+# uHoo air quality monitor custom component for Home Assistant
 
 A air quality monitoring appliance, which syncs data to the cloud.
 
