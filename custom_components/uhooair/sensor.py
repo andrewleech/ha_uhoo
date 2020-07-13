@@ -38,18 +38,18 @@ DEVICE_CLASS_NITROGEN_DIOXIDE = 'Nitrogen Dioxide'
 DEVICE_CLASS_AIR_PRESSURE = 'Air Pressure'
 
 SENSOR_TYPES = {
-    #'TEMP': {'device_class': DEVICE_CLASS_TEMPERATURE, - Bug in underlying library, not available.
-    #         'unit_of_measurement': TEMP_CELSIUS,
-    #         'icon': 'mdi:thermometer'},
+    'Temperature': {'device_class': DEVICE_CLASS_TEMPERATURE,
+                    'unit_of_measurement': TEMP_CELSIUS,
+                    'icon': 'mdi:thermometer'},
     'humidity': {'device_class': DEVICE_CLASS_HUMIDITY,
-              'unit_of_measurement': '%',
-              'icon': 'mdi:water-percent'},
+                 'unit_of_measurement': '%',
+                 'icon': 'mdi:water-percent'},
     'co2': {'device_class': DEVICE_CLASS_CARBON_DIOXIDE,
             'unit_of_measurement': 'ppm',
             'icon': 'mdi:periodic-table-co2'},
     'CO': {'device_class': DEVICE_CLASS_CARBON_MONOXIDE,
-            'unit_of_measurement': 'ppm',
-            'icon': 'mdi:cloud'},
+           'unit_of_measurement': 'ppm',
+           'icon': 'mdi:cloud'},
     'voc': {'device_class': DEVICE_CLASS_VOLATILE_ORGANIC_COMPOUNDS,
             'unit_of_measurement': 'ppb',
             'icon': 'mdi:cloud'},
@@ -57,28 +57,28 @@ SENSOR_TYPES = {
              'unit_of_measurement': 'µg/m3',
              'icon': 'mdi:cloud'},
     'ozone': {'device_class': DEVICE_CLASS_OZONE,
-             'unit_of_measurement': 'ppb',
-             'icon': 'mdi:cloud'},
-    'NO2': {'device_class': DEVICE_CLASS_NITROGEN_DIOXIDE,
-             'unit_of_measurement': 'ppb',
-             'icon': 'mdi:cloud'},
-    'air_pressure': {'device_class': DEVICE_CLASS_AIR_PRESSURE,
-              'unit_of_measurement': 'nPa',
+              'unit_of_measurement': 'ppb',
               'icon': 'mdi:cloud'},
+    'NO2': {'device_class': DEVICE_CLASS_NITROGEN_DIOXIDE,
+            'unit_of_measurement': 'ppb',
+            'icon': 'mdi:cloud'},
+    'air_pressure': {'device_class': DEVICE_CLASS_AIR_PRESSURE,
+                     'unit_of_measurement': 'nPa',
+                     'icon': 'mdi:cloud'},
 }
 
 # This is the minimum time between throttled update calls.
 # Don't bother asking us for state more often than that.
 SCAN_INTERVAL = timedelta(minutes=5)
 
-#UHOOAIR_DEVICE_SCHEMA = vol.Schema({
+# UHOOAIR_DEVICE_SCHEMA = vol.Schema({
 #    vol.Required(CONF_SERIAL_NUMBER): cv.string,
-#})
+# })
 
 PLATFORM_SCHEMA = cv.PLATFORM_SCHEMA.extend({
     vol.Required(CONF_EMAIL): cv.string,
     vol.Required(CONF_PASSWORD): cv.string
-    #vol.Optional(CONF_DEVICES): vol.All(cv.ensure_list, [UHOOAIR_DEVICE_SCHEMA]),
+    # vol.Optional(CONF_DEVICES): vol.All(cv.ensure_list, [UHOOAIR_DEVICE_SCHEMA]),
 })
 
 
@@ -104,7 +104,7 @@ async def async_setup_platform(hass, config, async_add_entities,
             # and caches results in the object. No need for additional
             # caching data class.
             uhoo_data = UhooDev(name, auth)
-            
+
             for sensor in SENSOR_TYPES:
                 if sensor in uhoo_data._data:
                     uhoo_sensor = UhooAirSensor(uhoo_data, device, sensor)
@@ -182,4 +182,3 @@ class UhooAirSensor(Entity):
     def should_poll(self):
         """Should device be polled"""
         return True
-
