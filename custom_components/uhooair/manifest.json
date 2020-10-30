@@ -1,8 +1,8 @@
 {
   "domain": "uhooair",
   "name": "uHooAir",
-  "documentation": "https://github.com/mcclown/home-assistant-custom-components/blob/master/README.md#uhoo-air-quality-monitor",
+  "documentation": "https://gitlab.com/alelec/ha_uhoo",
   "dependencies": [],
-  "codeowners": ["@mcclown"],
-  "requirements": ["pyuhooair==0.0.2"]
+  "codeowners": ["@andrewleech", "@ehn", "@mcclown"],
+  "requirements": ["pyuhoo==0.0.2"]
 }

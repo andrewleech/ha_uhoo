@@ -2,11 +2,9 @@
 
 A air quality monitoring appliance, which syncs data to the cloud.
 
-This API seems to only be available for enterprise customers currently but speak to uHoo if you have questions about that. Alpha quality but again, low risk, as it's only pulling data...should move towards beta quality quickly. Built on top of [pyuhooair](https://github.com/netmanchris/pyuhooair).
+Built on top of [pyuhoo](https://github.com/netmanchris/pyuhoo), this module is intended to work with the consumer api for uHoo. No guarantees are given that it will continue to work however.
 
-* Support for CO, CO<sub>2</sub>, NO<sub>2</sub>, O<sub>3</sub>, TVOC, Dust(PM2.5), Humidity and Air Pressure.
-* No support for Temperature yet, as there is a bug in the underlying python module.
-* Only updates from the API every 15 mins, data is cached by the pyuhooair implementation.
+* Support for Temperature, CO, CO<sub>2</sub>, NO<sub>2</sub>, O<sub>3</sub>, TVOC, Dust(PM2.5), Humidity and Air Pressure.
 
 Configuration just needs email address and password:
 
