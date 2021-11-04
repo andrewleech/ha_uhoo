@@ -4,5 +4,6 @@
   "documentation": "https://gitlab.com/alelec/ha_uhoo",
   "dependencies": [],
   "codeowners": ["@andrewleech", "@ehn", "@mcclown"],
-  "requirements": ["pyuhoo==0.0.2"]
+  "requirements": ["pyuhoo==0.0.2"],
+  "version": "1.0",
 }
